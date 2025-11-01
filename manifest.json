@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "iClass 자료 다운로더",
+  "version": "1.0",
+  "description": "iClass 강의 자료를 쉽게 다운로드할 수 있게 도와주는 확장 프로그램",
+  "permissions": [
+    "webRequest",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://iclass.tku.edu.tw/*",
+    "https://tc-minio.tku.edu.tw/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://iclass.tku.edu.tw/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
